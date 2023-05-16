@@ -2,6 +2,7 @@
 const express = require('express');
 const db = require('./utils/database');
 const Users = require('./models/users.model');
+const cors = require('cors');
 require('dotenv').config();
 
 //creamos una instancia de express llamada app.
@@ -17,6 +18,8 @@ db.sync()
     .catch(error => console.log(error));
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
